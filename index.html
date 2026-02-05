@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Search Neon</title>
+    <style>
+        /* Reset dan font modern */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        header h1 {
+            font-size: 3rem;
+            background: linear-gradient(45deg, #ff00ff, #00ffff, #00ff00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px #ff00ff, 0 0 40px #00ffff;
+            animation: neonGlow 2s ease-in-out infinite alternate;
+        }
+
+        /* Search Form */
+        .search-container {
+            max-width: 600px;
+            width: 100%;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
+            animation: fadeIn 1s ease-out;
+        }
+        .search-form {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid #00ffff;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            box-shadow: 0 0 10px #00ffff;
+            transition: box-shadow 0.3s;
+        }
+        input[type="text"]:focus {
+            box-shadow: 0 0 20px #00ffff, 0 0 30px #ff00ff;
+        }
+        button {
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #ff00ff, #00ff00);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 0 15px #ff00ff;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px #00ff00;
+        }
+
+        /* Results Placeholder */
+        .results {
+            margin-top: 2rem;
+            text-align: center;
+        }
+        .result-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+            animation: slideIn 0.5s ease-out;
+        }
+
+        /* Animasi */
+        @keyframes neonGlow {
+            from { text-shadow: 0 0 20px #ff00ff; }
+            to { text-shadow: 0 0 40px #00ffff, 0 0 60px #00ff00; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Responsivitas */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            .search-form { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Search Neon Vibes</h1>
+    </header>
+
+    <div class="search-container">
+        <form class="search-form" id="searchForm">
+            <input type="text" id="searchInput" placeholder="Cari apa aja yang keren..." required>
+            <button type="submit">Cari!</button>
+        </form>
+        <div class="results" id="results">
+            <!-- Hasil dummy -->
+            <div class="result-item">Hasil 1: Tren Terbaru</div>
+            <div class="result-item">Hasil 2: Musik EDM</div>
+            <div class="result-item">Hasil 3: Game Online</div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript untuk simulasi pencarian
+        document.getElementById('searchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const query = document.getElementById('searchInput').value;
+            alert(`Mencari: "${query}" - Hasil akan muncul di sini!`);
+            // Di sini bisa tambah logika fetch API untuk hasil nyata
+        });
+    </script>
+</body>
+</html>
